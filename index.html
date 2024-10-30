@@ -274,9 +274,8 @@
 
         <div id="invoice">
             <div class="invoice-header">
-                <h2>INVOICE</h2>
+                <h2 id="displayInvoiceName"></h2> <!-- This will display the invoice name -->
                 <div>
-                    <p><strong>Invoice Name:</strong> <span id="displayInvoiceName"></span></p>
                     <p><strong>Invoice No:</strong> <span id="displayInvoiceNo"></span></p>
                     <p><strong>Date:</strong> <span id="displayDate"></span></p>
                 </div>
@@ -388,7 +387,14 @@
             event.preventDefault();
 
             // Displaying invoice details
-            document.getElementById('displayInvoiceName').textContent = document.getElementById('invoiceName').value;
+            const invoiceName = document.getElementById('invoiceName').value;
+    
+            // Update the invoice display
+            document.getElementById('displayInvoiceName').textContent = invoiceName;
+    
+            // Hide form and show invoice
+            document.getElementById('invoiceForm').style.display = 'none';
+            document.getElementById('invoice').style.display = 'block';
             document.getElementById('displayInvoiceNo').textContent = document.getElementById('invoiceNo').value;
             document.getElementById('displayDate').textContent = document.getElementById('date').value;
 
@@ -479,6 +485,7 @@
         }
     </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 </body>
